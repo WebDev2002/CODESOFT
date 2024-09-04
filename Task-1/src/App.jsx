@@ -5,13 +5,14 @@ import { Routes, Route } from 'react-router-dom'
  import Project from './pages/Project'
  import Contact from './pages/Contact'
  import NotFound from './pages/NotFound'
-import './App.css'
-
+ import Navbar from './components/Navbar'
+import './Style.css'
 function App() {
 
 
   return (
     <>
+    <Navbar />
       <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/about' element={<About/>}/>

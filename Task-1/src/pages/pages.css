@@ -1,0 +1,162 @@
+.about-section{
+  margin: 2.5rem 0;
+}
+
+.about-section .box{
+  width: 80%;
+  margin: 1rem auto;
+  text-align: center;
+}
+.about-section .box h1{
+  margin-bottom: 2rem;
+}
+.about-section .box p{
+  text-align: left;
+  font-size: 1.2rem;
+  line-height: 1.7;
+  letter-spacing: 0.6px;
+}
+
+
+.project-section{
+  text-align: center;
+  margin-top: 2.5rem;
+}
+
+.project-section .projects{
+ display: flex;
+ flex-wrap: wrap;
+}
+
+.project-section h1{
+  margin-bottom: 2rem;
+}
+.project-section .projects .project-box{
+  width: 300px;
+  margin: 0.5rem 0;
+  height: auto;
+  text-align: center;
+}
+
+.skill-section{
+  margin-top: 2.5rem;
+  text-align: center;
+  margin-bottom: 5rem;
+}
+.skill-section .bars{
+  width: 50%;
+  margin: 0 auto;
+  text-align: left;
+}
+.skill-section .bars h5{
+   font-size: medium;
+}
+.skill-section .bars>div{
+   margin: 1rem 0;
+}
+.skill-section .bar progress .progress-bar{
+   height: 10px;
+}
+
+.contact {
+margin-top: 2.5rem;
+    text-align: center;
+  }
+  
+  .contact h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: #333;
+  }
+  
+  .contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+    text-align: left;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    color: #333;
+    resize: none;
+  }
+  
+  .form-group input:focus,
+  .form-group textarea:focus {
+    border-color: #007bff;
+    outline: none;
+    background-color: #fff;
+  }
+  
+  .contact-form button {
+    padding: 15px;
+    width: 100%;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
+  .contact-form button:hover {
+    background-color: #0056b3;
+  }
+  
+  .not-found-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+    background-color: #f5f5f5;
+  }
+  
+  .not-found-title {
+    font-size: 6rem;
+    color: #ff4757;
+    margin: 0;
+  }
+  
+  .not-found-message {
+    font-size: 1.5rem;
+    color: #333;
+    margin: 20px 0;
+  }
+  
+  .home-link {
+    font-size: 1.2rem;
+    color: #007bff;
+    text-decoration: none;
+    padding: 10px 20px;
+    border: 2px solid #007bff;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .home-link:hover {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
