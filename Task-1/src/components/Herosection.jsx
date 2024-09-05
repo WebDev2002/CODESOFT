@@ -4,6 +4,10 @@ import { Typewriter } from "react-simple-typewriter";
 import { ProgressBar } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ProjectDeatils from '../projectDeatils/ProjectDetails'
+import aboutImg from '../assets/about-img.jpg'
+import profileImg from '../assets/profile-img.jpg'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faInstagram, faGithub, faLinkedin, faYoutube } from '@fortawesome/free-brands-svg-icons';
 
 function Herosection() {
   const limit = 3;
@@ -30,19 +34,29 @@ function Herosection() {
               delaySpeed={1000}
             />
           </p>
-          <a href="">Resume</a>
+          <a href="../assets/Irfan_Ansari_Resume.pdf"  download="Irfan_Ansari_Resume.pdf" >Resume</a>
+          <div className="icons">
+          <FontAwesomeIcon icon={faInstagram} />
+          <FontAwesomeIcon icon={faGithub} />
+          <FontAwesomeIcon icon={faLinkedin} />
+          <FontAwesomeIcon icon={faYoutube} />
+
+          </div>
         </div>
         <div className="box right-box">
-          <div className="profile-img"></div>
+          <div className="profile-img">
+            <img src={profileImg} alt="" />
+          </div>
         </div>
       </section>
 
       <section className="about">
+      <h1>About Me</h1>
+      <div className="aboutBoxs">
         <div className="box left-box">
-          <img src="" alt="" />
+          <img src={aboutImg} alt="" />
         </div>
         <div className="box right-box">
-          <h1>About Me</h1>
           <p>
             I’m Irfan Ansari, a dedicated MERN stack developer passionate about
             crafting innovative web solutions. With expertise in both front-end
@@ -54,6 +68,7 @@ function Herosection() {
             Let’s connect and bring your ideas to life. You can reach out to me
             on <a href="">LinkedIn</a> or view my projects on <a href="">GitHub</a>.
           </p>
+        </div>
         </div>
       </section>
 
@@ -92,7 +107,7 @@ function Herosection() {
         <div className="projects">
         {displaySomeData.map((project, index)=>(
           <div key={index} className="project-box">
-             <div className="thumbnail">{project.img}</div>
+             <div className="thumbnail"><img src={project.img} alt="" /></div>
              <div className="details">
               <h3>{project.title}</h3>
               <p>{project.description}</p>

@@ -10,7 +10,9 @@ function Project() {
         <div className="projects">
         {ProjectDeatils.map((project, index)=>(
           <div key={index} className="project-box">
-             <div className="thumbnail">{project.img}</div>
+             <div className="thumbnail">
+              <img src={project.img} alt="" />
+             </div>
              <div className="details">
               <h3>{project.title}</h3>
               <p>{project.description}</p>

@@ -28,12 +28,17 @@ nav ul li a {
   height: 90vh;
   display: flex;
   justify-content: space-around;
-  align-items: center;
-  background-color: whitesmoke;
+  margin-bottom: 5rem;
+}
+
+.hero-section .left-box{
+  margin-left: 6rem;
+  margin-top: 7rem;
 }
 
 .left-box h1 {
   font-size: 3.5rem;
+  line-height: 1;
 }
 
 .left-box p {
@@ -49,16 +54,75 @@ nav ul li a {
   text-decoration: none;
 }
 
-.about {
-  height: 70vh;
+/* If using global stylesheet or regular CSS */
+.icons {
   display: flex;
-  justify-content: space-around;
+  gap: 20px;
+  align-items: center;
+  font-size: 30px;
+  margin: 2rem 0;
+}
+
+
+.hero-section .right-box{
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
   align-items: center;
 }
 
-.about .left-box {
-  width: 40%;
+.right-box .profile-img{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
+.right-box .profile-img img{
+ width: 350px;
+ height: 350px;
+ aspect-ratio: 3/2;
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70% ;
+  object-fit: cover;
+
+}
+
+.aboutBoxs{
+  display: flex;
+  width: 100%;
+  justify-content:space-evenly;
+  align-items: center;
+}
+.about {
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+.about h1{
+  text-align: center;
+}
+
+.about .left-box {
+  height: 100%;
+  display: flex;
+  justify-content:flex-end;
+  margin-right: 2rem;
+}
+
+.about .left-box img{
+  width: 300px;
+  height: 450px;
+  aspect-ratio: 2/3;
+  object-fit: contain;
+}
+
+/* .about .about-profile-img{
+  
+  background: url('../assets/profile-edit2.jpg') no-repeat center;
+  background-size: cover;
+} */
 
 .about .right-box {
   width: 40%;
@@ -97,29 +161,48 @@ nav ul li a {
     text-align: center;
 }
 
+.project h1{
+  padding-bottom: 2rem;
+}
 .projects{
-width: 70%;
+width: 100%;
 height: auto;
 display: flex;
-justify-content: space-around;
+flex-wrap: wrap;
+justify-content: center;
 align-items: center;
 margin: 0 auto;
 }
 .project-box{
-    width: 40%;
-    height: auto;
+    width: 350px;
+    height: 350px;
     text-align: left;
-    border: 2px solid;
+    border-radius: 5px;
+    margin:1rem;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+}
+
+.project-box .details{
+  padding: 0 8px;
+}
+
+.project-box .details h3{
+  font-size: 1.2rem;
+}
+.project-box .details p{
+  font-size: 12px;
 }
 .project-box .thumbnail{
 width: 100%;
-height: 20px;
+height: 200px;
 }
 .project-box .thumbnail img{
     width: 100%;
-    height: auto;
+    height: 200px;
     aspect-ratio: 2/3;
     object-fit: cover;
+    padding: 5px;
+    border-radius: 10px;
 }
 
 .footer{
@@ -215,4 +298,184 @@ height: 20px;
   .mail-section form button:hover {
     background-color: #0056b3;
   }
+
+  @media (max-width: 1024px){
+    .footer{
+      height: auto;
+    }
+    .footer-box{
+     flex-direction: column;
+     flex-wrap: nowrap;
+     justify-content: center;
+     align-items: center;
+    }
+    .menu .box{
+      flex: 0;
+      width: 200px;
+      margin: 0 10px;
+    }
+    .menu{
+      padding-left: 4rem;
+    }
+  }
+   
+  @media (max-width: 768px) {
+    .hero-section{
+      height: 400px;
+    }
+     .hero-section .right-box{
+      display: none;
+     }
+     .hero-section .left-box{
+      text-align: center;
+      margin-left: 0px;
+      margin-top: 3rem;
+     }
+     .hero-section .left-box .icons{
+      justify-content: center;
+     }
+
+     .aboutBoxs{
+      display: block;
+      text-align: center;
+     }
+     .about h1{
+      padding-bottom: 1rem;
+     }
+     .about .left-box{
+      width: 100%;
+      margin: 0;
+      justify-content: center;
+     }
+     .about .left-box img{
+        width: 400px;
+        height: 200px;
+        border-radius: 50%;
+     }
+     .about .right-box{
+      width: 80%;
+      margin: 0 auto;
+      justify-content: center;
+      text-align: left;
+      padding: 10px 1rem;
+     }
+     .about .right-box p{
+      font-size: medium;
+      padding-top: 0.5rem;
+     }
+     .menu .box{
+      flex: 0;
+      min-width: 150px;
+      margin: 10px;
+    }
+    .menu{
+      padding-left: 0rem;
+      width: 100%;
+      justify-content:flex-end;
+      margin: 0 auto;
+    }
+    .menu .box h6{
+      font-size: 1rem;
+    }
+    .menu .box ul li{
+      font-size: 12px;
+    }
+
+  }
+
+  @media (max-width:425px) {
+
+    .hero-section{
+      height: 300px;
+    }
+    .hero-section .left-box h1{
+      font-size: 2em;
+     }
+     .hero-section .left-box p{
+      font-size: 0.9rem;
+     }
+     .left-box a {
+      padding: 5px 20px;
+      border: 1px solid;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+     .hero-section .left-box .icons{
+      font-size: larger;
+     }
+     .about .right-box{
+      width: 100%;
+     }
+     .about .right-box p{
+      font-size: 14px;
+      letter-spacing: 0.5px;
+     }
+     .skill .bars{
+      width: 100%;
+      padding: 0 1.5rem;
+     }
+     .project .projects .project-box{
+      height: auto;
+      padding-bottom:0.7rem ;
+    
+  }
+     .menu{
+      justify-content:center;
+    }
+  }
+
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+  }
   
+  .hamburger .line {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 4px 0;
+    transition: all 0.3s ease;
+  }
+  
+  /* Show hamburger menu on small screens */
+  @media (max-width: 768px) {
+    .hamburger {
+      display: flex;
+    }
+  
+    .nav-links {
+      position: absolute;
+      top: 60px;
+      left: -100%;
+      width: 100%;
+      height: calc(100vh - 60px);
+      background-color: #333;
+      flex-direction: column;
+      height: 100vh;
+      align-items: center;
+      transition: left 0.3s ease;
+    }
+  
+    .nav-links.open {
+      left: 0;
+    }
+  
+    .nav-links li {
+      margin: 20px 0;
+    }
+  }
+  
+  /* Hamburger Menu Animation */
+  .hamburger.open .line:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  
+  .hamburger.open .line:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .hamburger.open .line:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
