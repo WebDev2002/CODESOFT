@@ -1,5 +1,4 @@
 import {UserDetails} from '../model/user.model.js'
-// import jwt from 'jsonwebtoken'
 import {asynhandler} from '../utils/asynHandler.js'
 import {apiError} from '../utils/apiError.js'
 import {apiResponse} from '../utils/apiResponse.js'
@@ -36,16 +35,9 @@ const signUp = asynhandler(async(req, res)=>{
         email,
         password
     })
-
-    const option={
-        httpOnly:true,
-        secure:true
-    }
-
     if(userCreated){
-        const {RefreshToken, AccessToken} = await GenerateAccessAndRefreshToken(userCreated)
     
-        return res.status(201).cookie("RefreshToke : ", RefreshToken, option).cookie("AccessToken : ", AccessToken, option).json(
+        return res.status(201).json(
             new apiResponse(200,
                 "User Created"
             )
@@ -77,11 +69,13 @@ const signIn = asynhandler(async(req, res)=>{
         secure:true
     }
 
-    return res.status(200).cookie("RefreshToken : ", RefreshToken, option).cookie("AccessToken : ", AccessToken, option)
+    return res.status(200)
+    .cookie("RefreshToken ", RefreshToken, option)
+    .cookie("AccessToken ", AccessToken, option)
     .json( new apiResponse(
         200,
         "User Login Successfully"
-    ))
+    ));
 
 })
 
@@ -102,7 +96,7 @@ const option={
    httpOnly:true,
    secure:true
 }
-return res.status(200).cleanCookie("AccessToken", option).cleanCookie("RefreshToken", option).json(200, "Logout Successfully")
+return res.status(200).clearCookie("AccessToken", option).clearCookie("RefreshToken", option).json(200, "Logout Successfully")
 })
 
 export{signUp, signIn, logOut}

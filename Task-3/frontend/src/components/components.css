@@ -1,0 +1,45 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    height: 9vh;
+    align-items: center;
+    padding: 0 3rem;
+}
+nav ul{
+    display: flex;
+    list-style: none;
+}
+
+nav ul li{
+    padding: 0 15px;
+}
+
+.conatiner{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.conatiner h1{
+    font-size: 3rem;
+    padding-bottom: 0.8rem;
+}
+.conatiner h6{
+    font-size: 1.3rem;
+    padding-bottom: 3rem;
+}
+
+.conatiner a{
+    text-decoration: none;
+    padding: 15px 20px;
+    font-size: small;
+    background-color: orangered;
+    color: white;
+    border-radius: 5px;
+}

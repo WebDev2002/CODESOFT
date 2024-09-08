@@ -1,12 +1,14 @@
+import Navigation from './components/Navigation'
+import CreateBlog from './pages/CreateBlog'
 
-import './App.css'
 
 function App() {
 
 
   return (
     <>
-    
+    <Navigation />
+    <CreateBlog />
     </>
   )
 }

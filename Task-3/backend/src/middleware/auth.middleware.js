@@ -26,5 +26,4 @@ next()
     throw new apiError(401, error?.message || "Invalid Token")
  }
 })
-
 export {VerifyUser}

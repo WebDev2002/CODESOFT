@@ -4,6 +4,10 @@ import {signIn} from '../controller/user.controller.js'
 import {VerifyUser} from '../middleware/auth.middleware.js'
 import {logOut} from '../controller/user.controller.js'
 
+import {createBlog} from '../controller/blog.controller.js'
+import {deleteBlog} from '../controller/blog.controller.js'
+import {updateBlog} from '../controller/blog.controller.js'
+
 const router = Router();
 
 
@@ -16,6 +20,17 @@ signIn
 
 router.route("/logOut").post(
 VerifyUser, logOut
+)
+
+router.route("/create").post(
+VerifyUser, createBlog
+)
+router.route("/delete").post(
+VerifyUser, deleteBlog
+)
+
+router.route("/update").post(
+VerifyUser, updateBlog
 )
 
 export default router
