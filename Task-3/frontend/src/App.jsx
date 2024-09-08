@@ -1,14 +1,13 @@
-import Navigation from './components/Navigation'
+import Navrap from './components/Navigation'
 import CreateBlog from './pages/CreateBlog'
-
+import SignIn from './pages/SignIn'
 
 function App() {
 
 
   return (
     <>
-    <Navigation />
-    <CreateBlog />
+    <SignIn />
     </>
   )
 }
