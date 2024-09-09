@@ -66,7 +66,8 @@ const signIn = asynhandler(async(req, res)=>{
 
     const option={
         httpOnly:true,
-        secure:true
+        secure:false,
+         path: '/'
     }
 
     return res.status(200)
@@ -94,7 +95,8 @@ const logOut = asynhandler(async(req, res)=>{
 
 const option={
    httpOnly:true,
-   secure:true
+   secure:false,
+   path:'/'
 }
 return res.status(200).clearCookie("AccessToken", option).clearCookie("RefreshToken", option).json(200, "Logout Successfully")
 })

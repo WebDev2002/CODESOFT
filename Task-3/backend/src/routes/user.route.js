@@ -25,11 +25,11 @@ VerifyUser, logOut
 router.route("/create").post(
 VerifyUser, createBlog
 )
-router.route("/delete").post(
+router.route("/delete/:id").get(
 VerifyUser, deleteBlog
 )
 
-router.route("/update").post(
+router.route("/update/:id").post(
 VerifyUser, updateBlog
 )
 

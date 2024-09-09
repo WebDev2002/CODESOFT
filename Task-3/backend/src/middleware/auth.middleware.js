@@ -9,13 +9,16 @@ const VerifyUser = asynhandler(async(req, _, next)=>{
     
       const token = req.cookies?.AccessToken || req.header("Authorization")?.replace("Bearer", "")
 
-      if(!token){
-        throw new apiError(401, "Unauthorize Access")
-      }
+
+       if(!token){
+         throw new apiError(401, "Unauthorize Access")
+       }
 
       const decodeToken = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
+  
 
-      const user = await UserDetails.findById(decodeToken._id).select("-password -refreshtoken")
+      const user = await UserDetails.findById(decodeToken.id)
+      
 
       if(!user){
         throw new apiError(401, "Invalid user")

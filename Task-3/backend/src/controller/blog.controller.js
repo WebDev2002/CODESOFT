@@ -36,6 +36,8 @@ const createBlog = asynhandler(async(req, res)=>{
 
 const deleteBlog = asynhandler(async(req,res)=>{
     const blog = await Blog.findById(req.params.id)
+    
+    
 
     if(!blog){
         return res.status(404).json(new apiError(404, {}, "Blog Not Found"))
@@ -45,7 +47,7 @@ const deleteBlog = asynhandler(async(req,res)=>{
         return res.status(401).json( new apiError(401, {}, "Not Authorized to delete the blog"))
     }
 
-    const blogRemove = await blog.remove()
+    const blogRemove = await Blog.deleteOne({_id:blog})
 
     if(blogRemove){
         return res.status(200).json(new apiResponse(200, {}, "Blog deleted successfully"))
