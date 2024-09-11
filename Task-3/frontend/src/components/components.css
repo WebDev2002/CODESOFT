@@ -1,0 +1,267 @@
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Navigation Styles */
+  nav {
+    background-color: #333;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo h1 {
+    color: white;
+    margin: 0;
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    margin: 0;
+  }
+  
+  .nav-links li {
+    display: inline;
+  }
+  
+  .nav-links a {
+    color: #FFA500; /* Orange color for SignIn/SignUp links */
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
+  
+  .nav-links a:hover {
+    color: #FF8C00; /* Darker orange on hover */
+  }
+  
+  /* Hero Section Styles */
+  .hero-section {
+    text-align: center;
+    padding: 2rem;
+    background-color: #f4f4f4;
+  }
+  
+  .hero-section h1 {
+    font-size: 2.5rem;
+    color: #333;
+  }
+  
+  .hero-section h5 {
+    font-size: 1.25rem;
+    color: #666;
+  }
+  
+  /* Button Styles */
+  .hero-section .main-btn{
+    background-color: #FFA500; /* Orange color */
+    border: none;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #FF8C00; /* Darker orange on hover */
+  }
+
+  
+
+
+  /* General styling for the form container */
+.signin-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+  }
+  
+  /* Styling the form */
+  .signin-form {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+  }
+  
+  /* Form headings */
+  .signin-form h2 {
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+  
+  /* Labels */
+  .signin-form label {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    display: block;
+    color: #333;
+  }
+  
+  /* Inputs */
+  .signin-form input {
+    width: 93%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+  
+  /* Submit button */
+  .signin-form button {
+    background-color: #FFA500; /* Orange */
+    color: white;
+    border: none;
+    padding: 0.75rem;
+    width: 100%;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 0.5rem;
+  }
+  
+  .signin-form button:hover {
+    background-color: #FF8C00; /* Darker orange */
+  }
+
+  .signin-form a{
+    display: flex;
+      justify-content: center;
+      padding-top: 1rem;
+      color: blue;
+  }
+  
+  /* General styling for the form container */
+.signup-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f4f4f4;
+}
+
+/* Styling the form */
+.signup-form {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 100%;
+}
+
+/* Form headings */
+.signup-form h2 {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+/* Labels */
+.signup-form label {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  display: block;
+  color: #333;
+}
+
+/* Inputs */
+.signup-form input {
+  width: 93%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+/* Submit button */
+.signup-form button {
+  background-color: #FFA500; /* Orange */
+  color: white;
+  border: none;
+  padding: 0.75rem;
+  width: 100%;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 0.5rem;
+}
+
+.signup-form button:hover {
+  background-color: #FF8C00; /* Darker orange */
+}
+
+.signup-form a{
+  display: flex;
+    justify-content: center;
+    padding-top: 1rem;
+    color: blue;
+}
+
+
+
+.create-blog {
+  width: 40%;
+  margin: 0 auto;
+  margin-top: 1.5rem;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+}
+
+.create-blog h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+input,
+textarea {
+  width: 96%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+textarea {
+  min-height: 230px;
+  resize: none;
+}
+
+.create-blog button {
+  background-color: #FFA500; /* Orange */
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+  display: block;
+  width: 100%;
+}
+
+button:hover {
+  background-color: #FF8C00; /* Darker orange */
+}

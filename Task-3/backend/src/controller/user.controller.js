@@ -28,10 +28,10 @@ const GenerateAccessAndRefreshToken = async(user)=>{
 
 
 const signUp = asynhandler(async(req, res)=>{
-    const {name, email, password} = req.body
+    const {username, email, password} = req.body
 
     const userCreated = await UserDetails.create({
-        name,
+        username,
         email,
         password
     })
@@ -67,7 +67,9 @@ const signIn = asynhandler(async(req, res)=>{
     const option={
         httpOnly:true,
         secure:false,
-         path: '/'
+         sameSite: 'None',
+         path: '/',
+         expires: new Date(Date.now() + 3600000)
     }
 
     return res.status(200)
@@ -96,6 +98,7 @@ const logOut = asynhandler(async(req, res)=>{
 const option={
    httpOnly:true,
    secure:false,
+    sameSite: 'None',
    path:'/'
 }
 return res.status(200).clearCookie("AccessToken", option).clearCookie("RefreshToken", option).json(200, "Logout Successfully")
