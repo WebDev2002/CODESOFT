@@ -21,7 +21,7 @@ function SignIn() {
 
   const sendData = async(signinData) =>{
       try {
-        const res = await axios.post('http://127.0.0.1:8080/user/signIn', signinData,{ withCredentials: true })
+        const res = await axios.post('http://127.0.0.1:8080/user/signIn', signinData, { withCredentials: true })
           if(res.data.message=='Success'){
             navigation('/create-blog')
           }

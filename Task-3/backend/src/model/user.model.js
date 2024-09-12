@@ -17,7 +17,11 @@ const userSchema = new Schema({
     },
     refreshtoken:{
         type:String
-    }
+    },
+    blog:[
+        {type:mongoose.Schema.Types.ObjectId, ref:'Blog'}
+    ]
+
 }, {timestamps:true})
 
 userSchema.pre("save", async function(next) {

@@ -1,12 +1,16 @@
-import React, {useState } from 'react';
+import React, { useState } from 'react';
 import Navbar from '../components/Navbar';
 import axios from 'axios'
 
 function CreateBlog() {
+
   const [createblogData, setCreateblogData] = useState({
     title:'',
     content:''
   })
+
+
+
 
   const handleblog = (e)=>{
       const {name , value} = e.target;

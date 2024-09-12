@@ -7,6 +7,7 @@ import {logOut} from '../controller/user.controller.js'
 import {createBlog} from '../controller/blog.controller.js'
 import {deleteBlog} from '../controller/blog.controller.js'
 import {updateBlog} from '../controller/blog.controller.js'
+import { fetchBlog } from '../controller/blog.controller.js'
 
 const router = Router();
 
@@ -32,5 +33,9 @@ VerifyUser, deleteBlog
 router.route("/update/:id").post(
 VerifyUser, updateBlog
 )
+
+router.route("/blogs/:id").get(
+    VerifyUser, fetchBlog
+    )
 
 export default router

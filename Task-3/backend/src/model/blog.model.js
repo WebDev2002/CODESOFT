@@ -1,5 +1,4 @@
 import mongoose, {Schema} from "mongoose";
-import { UserDetails } from "./user.model.js";
 
 const blogSchema = new Schema({
     title:{
@@ -10,7 +9,7 @@ const blogSchema = new Schema({
         type:String
     },
     author:{
-        type: mongoose.Schema.Types.ObjectId, ref:UserDetails,
+        type: mongoose.Schema.Types.ObjectId, ref:'userdetails',
         require:true
     }
 }, {timestamps:true})

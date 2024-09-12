@@ -66,17 +66,17 @@ const signIn = asynhandler(async(req, res)=>{
 
     const option={
         httpOnly:true,
-        secure:false,
-         sameSite: 'None',
-         path: '/',
-         expires: new Date(Date.now() + 3600000)
+        secure:process.env.NODE_ENV === 'production',
+        sameSite: 'lax',
+        path: '/',
     }
 
     return res.status(200)
-    .cookie("RefreshToken ", RefreshToken, option)
-    .cookie("AccessToken ", AccessToken, option)
+    .cookie("RefreshToken", RefreshToken, option)
+    .cookie("AccessToken", AccessToken, option)
     .json( new apiResponse(
         200,
+        {},
         "User Login Successfully"
     ));
 
@@ -97,9 +97,9 @@ const logOut = asynhandler(async(req, res)=>{
 
 const option={
    httpOnly:true,
-   secure:false,
-    sameSite: 'None',
-   path:'/'
+   secure:process.env.NODE_ENV === 'production',
+   sameSite: 'lax',
+   path: '/',
 }
 return res.status(200).clearCookie("AccessToken", option).clearCookie("RefreshToken", option).json(200, "Logout Successfully")
 })

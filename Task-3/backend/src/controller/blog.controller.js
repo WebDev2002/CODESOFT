@@ -87,4 +87,19 @@ const updateBlog = asynhandler(async(req, res)=>{
 
 })
 
-export {createBlog, deleteBlog, updateBlog}
+const fetchBlog = asynhandler(async(req,res)=>{
+  const userID = req.params.id
+
+    const user = await UserDetails.findById(userID).populate('blog')
+    if(!user){
+        throw new apiError(401, "User not found")
+    }
+
+    const blogs = await Blog.find({ author: userID });
+
+    return res.status(200).json(
+        new apiResponse(200, "User's Blogs Retrieved Successfully", blogs)
+    );
+})
+
+export {createBlog, deleteBlog, updateBlog, fetchBlog}
