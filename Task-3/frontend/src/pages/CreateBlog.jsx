@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import Navbar from '../components/Navbar';
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom';
 
 function CreateBlog() {
+
+  const navigation = useNavigate()
 
   const [createblogData, setCreateblogData] = useState({
     title:'',
@@ -22,13 +25,15 @@ function CreateBlog() {
 
   const sendblogcontent = async(createblogData)=>{
     try {
-      const res = await axios.post('http://127.0.0.1:8080/user/create', createblogData, { withCredentials: true })
-      console.log(res.data);
+       const res = await axios.post('http://127.0.0.1:8080/user/create', createblogData, { withCredentials: true })
+       console.log(res.data);
+       navigation('/post-blog')
       
     } catch (error) {
       console.log(error);
       
     }
+    
   }
 
   const handleSubmit = (e) => {

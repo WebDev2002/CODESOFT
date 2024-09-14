@@ -4,7 +4,7 @@ import Herosection from '../components/Herosection'
 
 function Home() {
   return (
-    <div>
+    <div className='main-page'>
 <Navbar/>
 <Herosection/>
 

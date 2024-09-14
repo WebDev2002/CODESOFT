@@ -9,8 +9,8 @@ function Herosection() {
   return (
     <>
           <section className="hero-section">
-    <h1>Header</h1>
-    <h5>Sub-Header</h5>
+    <h1>Let your passions shine through.</h1>
+    <h5>Make your blog shine with minimal effort.</h5>
     <button onClick={createblog} className='main-btn'>Create Blog</button>
   </section>
     </>

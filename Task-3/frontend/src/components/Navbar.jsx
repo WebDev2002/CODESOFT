@@ -49,7 +49,7 @@ function Navbar() {
     </div>
     <ul className="nav-links">
    
-        <li><button onClick={HandleLogout}>Logout</button></li>
+        {/* <li><button onClick={HandleLogout}>Logout</button></li> */}
    
      
            <li><Link to="/signin">Sign In</Link></li>

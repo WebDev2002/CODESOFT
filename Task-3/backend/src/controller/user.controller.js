@@ -9,6 +9,7 @@ import jwt from 'jsonwebtoken'
 
 
 const GenerateAccessAndRefreshToken = async(user)=>{
+   
      const RefreshToken = jwt.sign(
         {id: user._id},
         process.env.REFRESH_TOKEN_SECRET,
@@ -66,7 +67,7 @@ const signIn = asynhandler(async(req, res)=>{
 
     const option={
         httpOnly:true,
-        secure:process.env.NODE_ENV === 'production',
+        secure:true,
         sameSite: 'lax',
         path: '/',
     }
@@ -76,7 +77,7 @@ const signIn = asynhandler(async(req, res)=>{
     .cookie("AccessToken", AccessToken, option)
     .json( new apiResponse(
         200,
-        {},
+        {RefreshToken,AccessToken},
         "User Login Successfully"
     ));
 
@@ -97,11 +98,44 @@ const logOut = asynhandler(async(req, res)=>{
 
 const option={
    httpOnly:true,
-   secure:process.env.NODE_ENV === 'production',
+   secure:true,
    sameSite: 'lax',
    path: '/',
 }
 return res.status(200).clearCookie("AccessToken", option).clearCookie("RefreshToken", option).json(200, "Logout Successfully")
 })
 
-export{signUp, signIn, logOut}
+
+const refresAccesstoken = asynhandler(async(req,res)=>{
+   const incomingRefreshAndAccessToken = req.cookies.RefreshToken || req.body.RefreshToken
+   if(!incomingRefreshAndAccessToken){
+       throw new apiError(401 ," unauthorized ")
+   }
+
+  const decode = jwt.verify(incomingRefreshAndAccessToken , process.env.REFRESH_TOKEN_SECRET);
+ const user = await UserDetails.findById(decode?._id)
+ if(!user){
+    throw new apiError(401 ,"Invalid Refresh token")
+ }
+ if(incomingRefreshAndAccessToken !== user?.refreshtoken){
+    throw new apiError(401, "Refresh token is expire")
+ }
+
+ const option={
+    httpOnly:true,
+    secure:true,
+    sameSite: 'lax',
+    path: '/',
+ }
+
+ const {AccessToken, RefreshToken} =await GenerateAccessAndRefreshToken(user)
+
+ return res.status(200).cookie("AccessToken", AccessToken, option).cookie("RefreshToke", RefreshToken, option).json(
+    new apiResponse(
+        200,{}
+    )
+ )
+
+})
+
+export{signUp, signIn, logOut, refresAccesstoken}

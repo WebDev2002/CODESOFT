@@ -15,9 +15,10 @@ function App() {
       <Route path="/" element={<Home />} />
       <Route path="/signin" element={<SignIn/>} />
       <Route path="/signup" element={<SignUp />} />
-      <Route path="/create-blog/:updateblogId" element={<CreateBlog />} />
+      <Route path="/create-blog" element={<CreateBlog />} />
+      <Route path="/post-blog" element={<PostBlog/>} />
       </Routes>
-      <PostBlog/>
+      {/* <PostBlog/> */}
     </>
   )
 }
