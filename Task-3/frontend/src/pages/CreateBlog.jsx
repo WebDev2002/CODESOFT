@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Navbar from '../components/Navbar';
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom';
+import API from '../axios/Axiosinstance';
 
 function CreateBlog() {
 
@@ -25,7 +26,13 @@ function CreateBlog() {
 
   const sendblogcontent = async(createblogData)=>{
     try {
-       const res = await axios.post('http://127.0.0.1:8080/user/create', createblogData, { withCredentials: true })
+      const accessToken = localStorage.getItem('accessToken')
+       const res = await API.post('/create', createblogData, {
+        headers:{
+           Authorization: `Bearer ${accessToken}`
+        },
+        withCredentials: true
+       })
        console.log(res.data);
        navigation('/post-blog')
       

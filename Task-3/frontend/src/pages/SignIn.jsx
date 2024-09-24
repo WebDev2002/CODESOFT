@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios'
+import API from '../axios/Axiosinstance';
 
 function SignIn() {
 
@@ -21,13 +22,14 @@ function SignIn() {
 
   const sendData = async(signinData) =>{
       try {
-        const res = await axios.post('http://127.0.0.1:8080/user/signIn', signinData, { withCredentials: true })
+        const res = await API.post('/signIn', signinData, { withCredentials: true })
+        localStorage.setItem('accessToken', res.data.data.AccessToken);
         console.log(res.data);
-          if(res.data.statusCode==200){
-            navigation('/create-blog')
-            console.log(res.data);
+          // if(res.data.statusCode==200){
+          //   navigation('/create-blog')
+          //   console.log(res.data);
             
-          }
+          // }
       } catch (error) {
         console.log(error);
         

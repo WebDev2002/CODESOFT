@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios'
+import API from '../axios/Axiosinstance';
 
 function SignUp() {
 
@@ -23,9 +24,10 @@ function SignUp() {
 
   const sendData = async(signupData)=>{
     try {
-       const res = await axios.post('http://127.0.0.1:8080/user/signUp',signupData)
+       const res = await API.post('/signUp',signupData)
        const response = res.data.message;
-
+          console.log(localStorage);
+          
        if(response == 'Success'){
         navigation('/signin') 
        }

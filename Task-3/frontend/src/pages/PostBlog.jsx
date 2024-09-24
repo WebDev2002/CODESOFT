@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Navbar from '../components/Navbar';
+import API from '../axios/Axiosinstance';
 // import axios from 'axios';
 
 function PostBlog() {
 
   const [userblog, setUserblog] = useState([]);
-  // const userId = '66e0f1908f270fb8472c917a';
+  //  const userId = '66e0f1908f270fb8472c917a';
 
     const navigation = useNavigate()
     const newBlog = ()=>{
@@ -17,14 +18,14 @@ function PostBlog() {
     useEffect(()=>{
      try {
        const fetch = async()=>{
-            // const res = await axios.get(`http://127.0.0.1:8080/user/blogs/${userId}` ,{ withCredentials: true })
-            // console.log(res.data.message);
-            // setUserblog(res.data.message)
+             const res = await API.get(`/blogs/${userId}` ,{ withCredentials: true })
+             console.log(res.data);
+             setUserblog(res.data.message)
             
-            // if(res.data.message == []){
-            //   console.log("No Blog");
+             if(res.data.message == []){
+               console.log("No Blog");
               
-            // }
+             }
             
        }
        fetch()
@@ -72,15 +73,15 @@ function PostBlog() {
         <h1>Blogs</h1>
           
             <button onClick={newBlog}>Create New Blog</button>
-            {/* {userblog.map((data)=>(
+            {userblog.map((data)=>(
               <>
                <h3 key={data._id}>{data.title}</h3>
                <p>{data.content}</p>
                <button onClick={()=>HandleUpdateBlog(data._id)}>Update</button>
                <button onClick={()=>HandleDeleteBlog(data._id)}>Delete</button>
               </>
-             ))} */}
-            <div className="blog-body">
+             ))}
+            {/* <div className="blog-body">
             <div className="blog-content">
               <h3>Blog Head</h3>
               <p>Blog Content</p>
@@ -90,7 +91,7 @@ function PostBlog() {
             <br />
             <button onClick={()=>HandleDeleteBlog(data._id)}>Delete</button>
             </div>
-            </div>
+            </div> */}
            
         </div>
 
