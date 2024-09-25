@@ -6,36 +6,22 @@ import './components.css'
 import API from '../axios/Axiosinstance'
 
 function Navbar() {
-  // const [isAuth, setIsAuth] = useState(false);
   const navigation = useNavigate()
-
-  // useEffect(()=>{
-  //   const accessToken = Cookies.get('AccessToken')
-  //   if(accessToken){
-  //     setIsAuth(true)
-  //     console.log(accessToken);
-      
-  //   }
-  // }, [])
 
   const HandleLogout = async()=>{
    try {
       const logout = await API.post('/logOut')
       localStorage.removeItem('accessToken');
       console.log(logout.data);
-      navigation('/signin')
+      navigation('/')
    } catch (error) {
      console.log(error);
       
    }
-    // const accessToken = Cookies.get('AccessToken')
-    // if(accessToken){
-    //   setIsAuth(true)
-    //   console.log(accessToken);
-      
-    // }
-    // console.log(accessToken);
+  
   }
+
+  const isLogin = !!localStorage.getItem('accessToken')
 
   return (
 <>
@@ -44,14 +30,14 @@ function Navbar() {
       <h1>Blogger</h1>
     </div>
     <ul className="nav-links">
-   
-        <li><button onClick={HandleLogout}>Logout</button></li>
-   
-     
-           <li><Link to="/signin">Sign In</Link></li>
-           <li><Link to="/signup">Sign Up</Link></li>
-
-      
+      {isLogin ? (
+ <li><button onClick={HandleLogout}>Logout</button></li>
+      ):(
+        <>
+          <li><Link to="/signin">Sign In</Link></li>
+          <li><Link to="/signup">Sign Up</Link></li>
+        </>
+      )}
     </ul>
   </nav>
 </>

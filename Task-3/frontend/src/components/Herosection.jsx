@@ -4,7 +4,13 @@ function Herosection() {
 
     const navigation = useNavigate()
   const createblog = ()=>{
-    navigation('/create-blog')
+    
+    const isLogin = localStorage.getItem('accessToken')
+    if(isLogin){
+     navigation('/create-blog')
+    }else{
+      navigation('/signin')
+    }
  }
   return (
     <>

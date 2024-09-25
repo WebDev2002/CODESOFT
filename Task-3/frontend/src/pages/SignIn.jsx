@@ -25,11 +25,11 @@ function SignIn() {
         const res = await API.post('/signIn', signinData, { withCredentials: true })
         localStorage.setItem('accessToken', res.data.data.AccessToken);
         console.log(res.data);
-          // if(res.data.statusCode==200){
-          //   navigation('/create-blog')
-          //   console.log(res.data);
+           if(res.data.statusCode==200){
+             navigation('/create-blog')
+             console.log(res.data);
             
-          // }
+           }
       } catch (error) {
         console.log(error);
         

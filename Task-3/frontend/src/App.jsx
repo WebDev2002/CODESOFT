@@ -18,7 +18,6 @@ function App() {
       <Route path="/create-blog" element={<CreateBlog />} />
       <Route path="/post-blog" element={<PostBlog/>} />
       </Routes>
-      {/* <PostBlog/> */}
     </>
   )
 }

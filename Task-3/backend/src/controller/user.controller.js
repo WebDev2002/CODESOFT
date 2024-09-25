@@ -14,13 +14,15 @@ const GenerateAccessAndRefreshToken = async(user)=>{
         {id: user._id},
         process.env.REFRESH_TOKEN_SECRET,
         {expiresIn:process.env.REFRESH_TOKEN_EXPIRY}
+        
      )
      const AccessToken = jwt.sign(
         {id: user._id, name:user.name, email:user.email},
         process.env.ACCESS_TOKEN_SECRET,
         {expiresIn:process.env.ACCESS_TOKEN_EXPIRY}
      )
-
+     console.log('accessToken : ',process.env.ACCESS_TOKEN_EXPIRY);
+     
      user.refreshtoken = RefreshToken
      await user.save({validateBeforeSave:false})
 
@@ -67,9 +69,7 @@ const signIn = asynhandler(async(req, res)=>{
 
     const option={
         httpOnly:true,
-        secure:true,
-        sameSite: 'lax',
-        path: '/',
+        secure:true
     }
 
     return res.status(200)
@@ -98,9 +98,7 @@ const logOut = asynhandler(async(req, res)=>{
 
 const option={
    httpOnly:true,
-   secure:true,
-   sameSite: 'lax',
-   path: '/',
+   secure:true
 }
 return res.status(200).clearCookie("AccessToken", option).clearCookie("RefreshToken", option).json(200, "Logout Successfully")
 })
@@ -123,9 +121,7 @@ const refresAccesstoken = asynhandler(async(req,res)=>{
 
  const option={
     httpOnly:true,
-    secure:true,
-    sameSite: 'lax',
-    path: '/',
+    secure:true
  }
 
  const {AccessToken, RefreshToken} =await GenerateAccessAndRefreshToken(user)
